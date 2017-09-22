@@ -2,10 +2,10 @@
   menu.app-menu-user
     part(title='User')
       template(v-if="user.signedIn")
-        list-item(to="/profile" exact @click.native="close" title="Profile")
         list-item(to="/settings" exact @click.native="close" title="Settings")
+        list-item(type="anchor" @click.native="signOut" title="Sign Out")
       template(v-else)
-        list-item(to="/signin" exact @click.native="close" title="Sign In")
+        list-item(type="anchor" @click.native="signIn" title="Sign In")
 </template>
 
 <script>
@@ -26,6 +26,14 @@ export default {
     close () {
       this.$store.commit('setActiveMenu', '')
       noScroll.off()
+    },
+    signOut () {
+      this.$store.commit('signOut')
+      this.close()
+    },
+    signIn () {
+      this.$store.commit('signIn')
+      this.close()
     }
   }
 }

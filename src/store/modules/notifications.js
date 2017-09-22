@@ -39,7 +39,7 @@ const state = [
 ]
 
 const mutations = {
-  notifyCustom (state, data) {
+  notify (state, data) {
     let note = data
     note.icon = 'check-circle'
     note.time = Date.now()

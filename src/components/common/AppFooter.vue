@@ -1,14 +1,6 @@
 <template lang='pug'>
 footer.app-footer
   .container
-    .status(v-if='syncing')
-      i.fa.yellow.fa-spin.fa-refresh
-      |  Syncing chain&hellip; \#{{ syncHeight }} ({{ new Date(syncTime).toISOString() }})
-    .status(v-else='')
-      i.fa.green.fa-circle
-      |  Chain up-to-date (\#{{ syncHeight }})
-    .peers {{ numPeers }} peers
-  .container
     .copyright &copy; 2017 Interchain Foundation
 </template>
 

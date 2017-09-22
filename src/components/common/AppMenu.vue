@@ -1,5 +1,10 @@
 <template lang="pug">
   menu.app-menu
+    part(title='Discussion')
+      list-item(to="/" exact @click.native="close" title="All Threads")
+    part(title='Community')
+      list-item(to="/users" exact @click.native="close" title="All Users")
+  // 
     part(title='Wallet')
       list-item(to="/" exact @click.native="close" title="Balances")
       list-item(to="/wallet/send" exact @click.native="close" title="Send")

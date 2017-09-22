@@ -46,10 +46,10 @@ export default {
       let w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
       if (w >= 1024) {
         this.close()
-        this.$store.commit('SET_CONFIG_DESKTOP', true)
+        this.$store.commit('setDesktop', true)
         return
       }
-      this.$store.commit('SET_CONFIG_DESKTOP', false)
+      this.$store.commit('setDesktop', false)
       return
     }
   },

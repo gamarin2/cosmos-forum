@@ -111,7 +111,6 @@ page(:title='pageTitle')
 </template>
 
 <script>
-import { PrivKey } from 'tendermint-crypto'
 import { mapGetters } from 'vuex'
 import { between, minLength, maxLength, required, url } from 'vuelidate/lib/validators'
 import Btn from '@nylira/vue-button'
@@ -173,11 +172,11 @@ export default {
         // TODO: send update tx
       } else {
         this.$store.commit('activateNomination')
-        let privkey = PrivKey.generate('ed25519')
+        // let privkey = PrivKey.generate('ed25519')
         // TODO: user should sign outside of app
         let candidate = {
-          validatorPubKey: privkey.pubkey(),
-          signature: privkey.sign(Buffer('lol')),
+          // validatorPubKey: privkey.pubkey(),
+          // signature: privkey.sign(Buffer('lol')),
           keybaseID: this.fields.id,
           description: this.fields.description,
           country: this.fields.country,
