@@ -1,6 +1,6 @@
 [
   {
-    "slug": "jae-kwon",
+    "id": "jae-kwon",
     "name": "Jae Kwon",
     "bio": "Jae Kwon created Tendermint to save the world from needlessly wasting electricity to secure distributed ledgers. Along the way he realized that using quorums and cryptography instead of energy and hashing affords many advantages such as speed and scalability.",
     "ids": {
@@ -16,7 +16,7 @@
     }
   },
   {
-    "slug": "ethan-buchman",
+    "id": "ethan-buchman",
     "name": "Ethan Buchman",
     "bio": "Ethan sees consensus algorithms as a 21st century means for promoting social cohesion. He is driven to empower humans with new ways to coordinate and reach agreement at scale.",
     "ids": {
@@ -32,7 +32,7 @@
     }
   },
   {
-    "slug": "guido-schmitz-krummacher",
+    "id": "guido-schmitz-krummacher",
     "name": "Guido Schmitz-Krummacher",
     "bio": "Guido Schmitz-Krummacher is our Board Member based in Switzerland. He has worked for 25 years for SME in MD, Board or CEO positions. Guido joined the crypto-industry a year ago and is a interchain of different crypto foundations and companies.",
     "ids": {
@@ -44,7 +44,7 @@
     }
   },
   {
-    "slug": "peng-zhong",
+    "id": "peng-zhong",
     "name": "Peng Zhong",
     "bio": "Peng aims to dramatically increase blockchain adoption through better usability design. He hopes to turning cutting-edge technology into mundane things that everyone can use.",
     "ids": {
@@ -60,7 +60,7 @@
     }
   },
   {
-    "slug": "brian-crain",
+    "id": "brian-crain",
     "name": "Brian Fabian Crain",
     "bio": "For Brian distributed ledger combined interests in economics, game theory, technology and visions of a radically different future. In Tendermint, he wants to walk the tightrope between pragmatism and idealism.",
     "ids": {
@@ -76,7 +76,7 @@
     }
   },
   {
-    "slug": "jim-yang",
+    "id": "jim-yang",
     "name": "Jim Yang",
     "bio": "Jim Yang co-founded Identyx, where he served as CEO until its acquisition by Red Hat. Identyx developed an open source enterprise identity management software.",
     "ids": {
@@ -88,7 +88,7 @@
     }
   },
   {
-    "slug": "adrian-brink",
+    "id": "adrian-brink",
     "name": "Adrian Brink",
     "bio": "Adrian is a software engineer that aims to bring the cryptocurrency revolution to the masses. Broad adoption and ubiquitousness will drive the change we want to see.",
     "ids": {
@@ -104,7 +104,7 @@
     }
   },
   {
-    "slug": "alexis-sellier",
+    "id": "alexis-sellier",
     "name": "Alexis Sellier",
     "bio": "",
     "ids": {
@@ -119,7 +119,7 @@
     }
   },
   {
-    "slug": "anton-kaliaev",
+    "id": "anton-kaliaev",
     "name": "Anton Kaliaev",
     "bio": "Anton is a software engineer with more than 6 years of experience. He has worked in web, video processing, and telecom industries and has extensive knowledge, which he hopes will help him make Tendermint better. Always passionate about learning. Loves occasional traveling and enjoys writing his own blog.",
     "ids": {
@@ -135,7 +135,7 @@
     }
   },
   {
-    "slug": "christine-chiang",
+    "id": "christine-chiang",
     "name": "Christine Chiang",
     "bio": "Christine is the content creator and communications lead for the Cosmos project, the Internet of Blockchains.",
     "ids": {
@@ -149,7 +149,7 @@
     }
   },
   {
-    "slug": "ethan-frey",
+    "id": "ethan-frey",
     "name": "Ethan Frey",
     "bio": "Ethan has many years of experience in backend web development, and looks to bring all the tooling we enjoy from the web to help everyone build powerful blockchain applications based on tendermint. And along the way disrupt an industry or two…",
     "ids": {
@@ -163,7 +163,7 @@
     }
   },
   {
-    "slug": "fabian-weber",
+    "id": "fabian-weber",
     "name": "Fabian Weber",
     "bio": "",
     "ids": {
@@ -175,7 +175,7 @@
     }
   },
   {
-    "slug": "gautier-marin",
+    "id": "gautier-marin",
     "name": "Gautier Marin",
     "bio": "",
     "ids": {
@@ -188,7 +188,7 @@
     }
   },
   {
-    "slug": "greg-szabo",
+    "id": "greg-szabo",
     "name": "Greg Szabo",
     "bio": "Greg is an IT enthusiast with more than 10 years of experience in building enterprise infrastructures. His primary goal is to create a world, where computers are used transparently and people are focusing on their goals instead of their tools.",
     "ids": {
@@ -201,7 +201,7 @@
     }
   },
   {
-    "slug": "jessica-gelbard",
+    "id": "jessica-gelbard",
     "name": "Jessica Gelbard",
     "bio": "",
     "ids": {
@@ -213,7 +213,7 @@
     }
   },
   {
-    "slug": "judd-keppel",
+    "id": "judd-keppel",
     "name": "Judd Keppel",
     "bio": "",
     "ids": {
@@ -228,7 +228,7 @@
     }
   },
   {
-    "slug": "matt-bell",
+    "id": "matt-bell",
     "name": "Matt Bell",
     "bio": "Matt has been working in the cryptocurrency space since 2011. He believes blockchain technologies like Tendermint will transform the world the same way the internet did.",
     "ids": {
@@ -243,7 +243,7 @@
     }
   },
   {
-    "slug": "matt-oneill",
+    "id": "matt-oneill",
     "name": "Matt O'Neill",
     "bio": "",
     "ids": {
@@ -255,7 +255,7 @@
     }
   },
   {
-    "slug": "ola-kohut",
+    "id": "ola-kohut",
     "name": "Ola Kohut",
     "bio": "",
     "ids": {
@@ -269,7 +269,7 @@
     }
   },
   {
-    "slug": "rigel-rozanski",
+    "id": "rigel-rozanski",
     "name": "Rigel Rozanski",
     "bio": "Rigel is inspired by blockchain as a means of reducing entropy as the interactions of technology grow to manifold complexities. His interests lie in the crossroads between blockchain and the geospatial realm.",
     "ids": {
@@ -283,7 +283,7 @@
     }
   },
   {
-    "slug": "sunny-aggarwal",
+    "id": "sunny-aggarwal",
     "name": "Sunny Aggarwal",
     "bio": "",
     "ids": {
@@ -299,7 +299,7 @@
     }
   },
   {
-    "slug": "william-light",
+    "id": "william-light",
     "name": "William Light",
     "bio": "",
     "ids": {
@@ -314,7 +314,7 @@
     }
   },
   {
-    "slug": "zach-ramsay",
+    "id": "zach-ramsay",
     "name": "Zach Ramsay",
     "bio": "",
     "ids": {
@@ -329,7 +329,7 @@
     }
   },
   {
-    "slug": "zarko-milosevic",
+    "id": "zarko-milosevic",
     "name": "Zarko Milosevic",
     "bio": "",
     "ids": {
@@ -341,7 +341,7 @@
     }
   },
   {
-    "slug": "henny-han",
+    "id": "henny-han",
     "name": "Ash Han",
     "bio": "Ash Han is a founder of Finector, a leading research/consulting firm specialized in distributed ledger technology. He is an advisor of various blockchain-related startups such as Tendermint and Chronobank.io and also an author of multiple books and papers on blockchain.",
     "ids": {
@@ -354,7 +354,7 @@
     }
   },
   {
-    "slug": "franck-mikulecz",
+    "id": "franck-mikulecz",
     "name": "Franck Mikulecz",
     "bio": "Franck is founder and CEO of BAXTER, a group of companies focused on foreign exchange and technology. Having spent years in a market perpetually dominated by Banks, Franck feels the urge to help deliver the \"disruption\" promise of the Blockchain. With FXCH Ltd, a Clearing and Settlement startup, his goal is simply to drag FX, screaming and kicking into the cryptocurrency era.",
     "ids": {
@@ -366,7 +366,7 @@
     }
   },
   {
-    "slug": "hugh-rooney",
+    "id": "hugh-rooney",
     "name": "Hugh Rooney",
     "bio": "Hugh has extensive experience in the application of leading-edge technologies to a wide range of business problems in both the public and private sectors. He was also one of the founders of Infobright, a \"Big Data Analytics\" company.",
     "ids": {
@@ -378,7 +378,7 @@
     }
   },
   {
-    "slug": "thomas-greco",
+    "id": "thomas-greco",
     "name": "Thomas Greco",
     "bio": "Thomas Greco is Special Advisor to Omise (おみせ), an Asia-Pacific fintech company developing solutions that can add value to a financially disintermediated future. He also served as a special advisor to the Ethereum Foundation.",
     "ids": {
@@ -389,7 +389,7 @@
     }
   },
   {
-    "slug": "zaki-manian",
+    "id": "zaki-manian",
     "name": "Zaki Manian",
     "bio": "",
     "ids": {

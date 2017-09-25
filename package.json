@@ -20,6 +20,7 @@
     "@nylira/vue-notifications": "^1.3.0",
     "chart.js": "^2.7.0",
     "clipboard": "^1.7.1",
+    "firebase": "^4.4.0",
     "flatpickr": "^3.0.7",
     "jquery": "^3.2.1",
     "markdown-it": "^8.4.0",

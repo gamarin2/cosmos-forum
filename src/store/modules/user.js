@@ -1,5 +1,5 @@
 const state = {
-  username: 'peng-zhong',
+  id: 'peng-zhong',
   email: 'peng@tendermint.com',
   website: 'https://tendermint.com',
   signedIn: true

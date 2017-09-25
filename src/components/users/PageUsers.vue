@@ -9,10 +9,10 @@ page(title='All Users')
   list-item(
     v-for='i in filteredUsers'
     icon="face"
-    :key="i.slug"
+    :key="i.id"
     :title="i.name"
     :subtitle="i.groups.aib"
-    :to="'/users/' + i.slug")
+    :to="'/users/' + i.id")
 </template>
 
 <script>

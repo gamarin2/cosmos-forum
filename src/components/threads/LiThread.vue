@@ -1,23 +1,23 @@
 <template lang="pug">
 transition(name="thread")
-  router-link.li-thread(:to="{ name: 'thread', params: { thread: thread.id }}")
-    score-widget(:score="thread.score")
+  .li-thread
+    vote-widget(:thread="thread")
     .text
-      .title {{ thread.title }}
+      router-link.title(:to="{ name: 'thread', params: { thread: thread.id }}") {{ thread.title }}
       .meta
-        .author {{ thread.validatorId }}
+        router-link.author(:to="{ name: 'user', params: { user: thread.userId }}")
+          | {{ thread.userId }}
         .date {{ threadCreatedAtAgo }}
-        .type {{ thread.type }}
 </template>
 
 <script>
-import ScoreWidget from './ScoreWidget'
+import VoteWidget from './VoteWidget'
 import dateUnix from '../../scripts/dateUnix'
 import dateUnixAgo from '../../scripts/dateUnixAgo'
 export default {
   name: 'li-thread',
   components: {
-    ScoreWidget
+    VoteWidget
   },
   computed: {
     threadCreatedAt () {
@@ -68,9 +68,9 @@ export default {
 
   .title
     flex 1
-
+    font-size 1rem
+    color txt
     height 2rem
-    font-size 0.875rem
 
     overflow hidden
     text-overflow ellipsis
@@ -86,10 +86,9 @@ export default {
       border 1px solid bc-dim
 
   .meta
-    font-label()
     display flex
     line-height 1rem
-    font-size 0.666rem
+    font-size 0.75rem
     .author, .date
       margin-right 0.25rem
     .author

@@ -89,7 +89,8 @@ export default {
 </script>
 
 <style lang="stylus">
-@require '../../styles/variables.styl'
+@require '~@/styles/variables.styl'
+
 .card-candidate
   &:nth-of-type(2n) .card-candidate-container
     background alpha(app-fg, 7.5%)

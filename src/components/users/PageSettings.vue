@@ -1,17 +1,17 @@
 <template lang='pug'>
 page(title="User Settings")
   form-struct(:submit='onSubmit')
-    form-group(:error='$v.fields.username.$error'
-      field-id='form-settings-username' field-label='Username')
-      field#form-settings-username(
+    form-group(:error='$v.fields.id.$error'
+      field-id='form-settings-id' field-label='Username')
+      field#form-settings-id(
         type='text'
         placeholder='Username'
-        v-model='fields.username')
+        v-model='fields.id')
       form-msg(name='Username' type='required'
-        v-if='!$v.fields.username.required')
+        v-if='!$v.fields.id.required')
       form-msg(name='Username' type='length'
         min='2' max='32'
-        v-if='!$v.fields.username.minLength || !$v.fields.username.maxLength')
+        v-if='!$v.fields.id.minLength || !$v.fields.id.maxLength')
 
     form-group(:error='$v.fields.email.$error'
       field-id='form-settings-email' field-label='Email Address')
@@ -38,7 +38,7 @@ page(title="User Settings")
     div(slot="footer")
       btn(
         type="link"
-        :to="{ name: 'user', params: { user: user.username }}"
+        :to="{ name: 'user', params: { user: user.id }}"
         icon="search"
         value="View Profile")
       btn(@click='onSubmit' icon="refresh" value="Update Settings")
@@ -79,7 +79,7 @@ export default {
   data: () => ({
     edit: false,
     fields: {
-      username: '',
+      id: '',
       email: '',
       website: ''
     }
@@ -95,14 +95,14 @@ export default {
   },
   mounted () {
     if (this.user.signedIn) {
-      this.fields.username = this.user.username
+      this.fields.id = this.user.id
       this.fields.email = this.user.email
       this.fields.website = this.user.website
     }
   },
   validations: () => ({
     fields: {
-      username: {
+      id: {
         required,
         minLength: minLength(2),
         maxLength: maxLength(32)

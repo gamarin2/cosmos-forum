@@ -4,33 +4,35 @@ page(title="New Thread")
     router-link(:to="{ name: 'all-threads' }" exact): i.material-icons arrow_back
   form-struct(:submit="onSubmit")
     form-group(:error="$v.fields.title.$error"
-      field-id='proposal-title' field-label='Proposal Title')
-      field#proposal-title(
+      field-id='thread-title' field-label='Thread Title')
+      field#thread-title(
+        autofocus
         type="text"
-        placeholder="Proposal Title"
+        placeholder="Thread Title"
         v-model="fields.title")
-      form-msg(name='Proposal Title' type='required'
+      form-msg(name='Thread Title' type='required'
         v-if='!$v.fields.title.required')
-      form-msg(name='Proposal Title' type='length'
+      form-msg(name='Thread Title' type='length'
         :min='titleMinLength' :max='titleMaxLength'
         v-if='!$v.fields.title.minLength || !$v.fields.title.maxLength')
     form-group(:error="$v.fields.body.$error"
-      field-id='proposal-body' field-label='Proposal Body')
-      field#proposal-body(
+      field-id='thread-body' field-label='Thread Body')
+      field#thread-body(
         type="textarea"
-        placeholder="Write your proposal here..."
+        placeholder="Write your thread here..."
         v-model="fields.body")
-      form-msg(name='Proposal Body' type='required'
+      form-msg(name='Thread Body' type='required'
         v-if='!$v.fields.body.required')
-      form-msg(name='Proposal Body' type='length'
+      form-msg(name='Thread Body' type='length'
         :min='bodyMinLength' :max='bodyMaxLength'
         v-if='!$v.fields.body.minLength || !$v.fields.body.maxLength')
     div(slot="footer")
       div
-      btn(icon="send" value="Propose" type="submit")
+      btn(icon="check" value="Submit Thread" type="submit")
 </template>
 
 <script>
+import shortid from 'shortid'
 import { mapGetters } from 'vuex'
 import { minLength, maxLength, required } from 'vuelidate/lib/validators'
 import Btn from '@nylira/vue-button'
@@ -42,7 +44,7 @@ import FormStruct from '../common/NiFormStruct'
 import Page from '../common/NiPage'
 import ToolBar from '../common/NiToolBar'
 export default {
-  name: 'page-proposals-text',
+  name: 'page-threads-text',
   components: {
     Btn,
     Field,
@@ -54,7 +56,7 @@ export default {
     ToolBar
   },
   computed: {
-    ...mapGetters([])
+    ...mapGetters(['user'])
   },
   data: () => ({
     titleMinLength: 10,
@@ -62,17 +64,31 @@ export default {
     bodyMinLength: 10,
     bodyMaxLength: 40000,
     fields: {
+      id: shortid.generate(),
+      createdAt: '',
       title: '',
-      body: ''
+      body: '',
+      userId: '',
+      flags: {},
+      votes: {
+        yea: [],
+        nay: []
+      }
     }
   }),
   methods: {
     onSubmit () {
       this.$v.$touch()
       if (!this.$v.$error) {
-        this.$store.commit('notify', { title: 'TODO: Create Text Proposal', body: 'You will have successfully created a text proposal' })
+        let thread = this.fields
+        thread.createdAt = Date.now()
+        thread.userId = this.user.id
+
+        this.$store.commit('threadAdd', thread)
+
+        this.$store.commit('notify', { title: 'New Thread Created', body: 'You\'ve successfully created a new thread.' })
         this.resetForm()
-        this.$router.push({ name: 'proposals' })
+        this.$router.push({ name: 'all-threads' })
       }
     },
     resetForm () {

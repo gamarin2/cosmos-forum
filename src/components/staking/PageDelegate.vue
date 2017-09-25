@@ -223,7 +223,8 @@ export default {
 }
 </script>
 <style lang="stylus">
-@import '../../styles/variables.styl'
+@require '~@/styles/variables.styl'
+
 .page-delegate
   .cards
     margin 1rem 0

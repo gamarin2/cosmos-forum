@@ -33,7 +33,7 @@ export default {
     ...mapGetters(['users']),
     user () {
       if (this.users) {
-        return this.users.find(d => d.slug === this.$route.params.user)
+        return this.users.find(d => d.id === this.$route.params.user)
       } else {
         return this.tmpUser
       }
