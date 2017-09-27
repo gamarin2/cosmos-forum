@@ -1,17 +1,20 @@
 <template lang="pug">
-page(title='All Threads')
+page(icon="message", :title="discussion.title + ' Discussion'")
   modal-search(v-if="filters.threads.search.visible" type="threads")
   tool-bar
     a(@click='setSearch(true)'): i.material-icons search
-    router-link(to="/threads/new" exact): i.material-icons add
+    router-link(:to="routeNewThread"): i.material-icons add
   part
     li-thread(v-for="p in filteredThreads" :key="p.id" :thread="p")
+    list-item(v-if="filteredThreads.length === 0" :to="routeNewThread"
+      dt="No Threads" dd="Break the ice by creating the first thread!")
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import { includes, orderBy } from 'lodash'
+import { includes } from 'lodash'
 import Mousetrap from 'mousetrap'
+import ListItem from '../common/NiListItem'
 import LiThread from './LiThread'
 import ModalSearch from '../common/ModalSearch'
 import TabBar from '../common/NiTabBar'
@@ -21,6 +24,7 @@ import Part from '../common/NiPart'
 export default {
   name: 'page-threads-all',
   components: {
+    ListItem,
     LiThread,
     ModalSearch,
     Page,
@@ -29,11 +33,17 @@ export default {
     ToolBar
   },
   computed: {
-    ...mapGetters(['threads', 'filters']),
+    ...mapGetters(['threads', 'filters', 'discussions']),
+    discussion () {
+      return this.discussions.find(i => i.id === this.$route.params.discussion)
+    },
+    routeNewThread () {
+      return { name: 'page-thread-new', params: { discussion: this.discussion.id } }
+    },
     filteredThreads () {
       if (this.threads && this.filters) {
         let query = this.filters.threads.search.query
-        let threads = orderBy(this.threads, [this.sort.property], [this.sort.order])
+        let threads = this.threads.filter(i => i.discussionId === this.$route.params.discussion)
         if (this.filters.threads.search.visible) {
           return threads.filter(p => includes(p.title.toLowerCase(), query))
         } else {
@@ -44,32 +54,13 @@ export default {
       }
     }
   },
-  data: () => ({
-    sort: {
-      property: 'created_at',
-      order: 'desc',
-      properties: [
-        { id: 1, title: 'Title', value: 'title' },
-        { id: 2, title: 'Type', value: 'type' },
-        { id: 3, title: 'Created At', value: 'created_at', initial: true },
-        { id: 4, title: 'Activated At', value: 'active_at' },
-        { id: 5, title: 'Proposer', value: 'entity_id' }
-      ]
-    }
-  }),
   methods: {
-    gotoPrevote () {
-      this.$store.commit('notify', { title: 'TODO: Prevote Threads', body: 'Work in progress.' })
-    },
-    gotoArchive () {
-      this.$store.commit('notify', { title: 'TODO: Archive Threads', body: 'Work in progress.' })
-    },
-    gotoNewThread () { this.$router.push('/threads/new') },
+    newThread () { this.$router.push('/threads/new') },
     setSearch (bool) { this.$store.commit('setSearchVisible', ['threads', bool]) }
   },
   mounted () {
     Mousetrap.bind(['command+f', 'ctrl+f'], () => this.setSearch(true))
-    Mousetrap.bind(['command+n', 'ctrl+n'], () => this.gotoNewThread())
+    Mousetrap.bind(['command+n', 'ctrl+n'], () => this.newThread())
     Mousetrap.bind('esc', () => this.setSearch(false))
   }
 }

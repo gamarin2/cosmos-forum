@@ -6,7 +6,7 @@ nav#app-header: .container
     .header-item(v-else @click="enableMenu('app')"): i.material-icons menu
 
   router-link.header-item.header-item-logo(to="/")
-    img(src="~@/assets/images/cosmos.png")
+    | Cosmos Assembly
   app-menu(v-if="config.activeMenu === 'app' || config.desktop")
   app-menu-user(v-if="config.activeMenu === 'user' || config.desktop")
 
@@ -110,7 +110,7 @@ export default {
         color link
 
       &.header-item-logo
-        font-size 0.66rem
+        font-weight 500
         img
           height 1rem
 

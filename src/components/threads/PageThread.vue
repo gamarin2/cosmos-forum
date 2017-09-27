@@ -1,7 +1,8 @@
 <template lang="pug">
 page(:title='thread.title')
   tool-bar
-    router-link(to="/" exact): i.material-icons arrow_back
+    router-link(to="../" exact)
+      i.material-icons arrow_back
     a(@click="threadIsSpam(thread.id)"): i.material-icons error
     a(@click="commentOnThread(thread.id)"): i.material-icons comment
 

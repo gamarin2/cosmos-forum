@@ -3,6 +3,7 @@ import data from '../json/threads.json'
 const state = data
 
 const mutations = {
+  /*
   threadVoteYea (state, { threadId, userId }) {
     let thread = state.find(i => i.id === threadId)
     if (!thread.votes.yea.includes(userId)) {
@@ -19,6 +20,18 @@ const mutations = {
     let thread = state.find(i => i.id === threadId)
     thread.votes.yea = thread.votes.yea.filter(i => i !== userId)
     thread.votes.nay = thread.votes.nay.filter(i => i !== userId)
+    console.log(userId, 'reset vote on', threadId)
+  },
+  */
+  threadVote (state, { threadId, userId }) {
+    let thread = state.find(i => i.id === threadId)
+    if (!thread.votes.includes(userId)) {
+      thread.votes.push(userId)
+    }
+  },
+  threadVoteReset (state, { threadId, userId }) {
+    let thread = state.find(i => i.id === threadId)
+    thread.votes = thread.votes.filter(i => i !== userId)
     console.log(userId, 'reset vote on', threadId)
   },
   threadAdd (state, thread) {

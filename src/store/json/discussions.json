@@ -1,0 +1,66 @@
+[
+  {
+    "id": "general",
+    "order": 0,
+    "title": "General",
+    "type": "english",
+    "subtitle": "Uncategorized discussions."
+  },
+  {
+    "id": "economics",
+    "order": 1,
+    "title": "Economics",
+    "type": "english",
+    "subtitle": "Discuss PoS economics."
+  },
+  {
+    "id": "validators",
+    "order": 2,
+    "title": "Validators",
+    "type": "english",
+    "subtitle": "Discuss validators."
+  },
+  {
+    "id": "feedback",
+    "order": 3,
+    "title": "Feedback",
+    "type": "english",
+    "subtitle": "Feedback on past proposals."
+  },
+  {
+    "id": "chinese",
+    "title": "简体中文",
+    "type": "i18n",
+    "subtitle": "For Chinese discussions."
+  },
+  {
+    "id": "french",
+    "title": "Français",
+    "type": "i18n",
+    "subtitle": "For French discussions."
+  },
+  {
+    "id": "german",
+    "title": "Deutsche",
+    "type": "i18n",
+    "subtitle": "For German discussions."
+  },
+  {
+    "id": "italian",
+    "title": "Italiano",
+    "type": "i18n",
+    "subtitle": "For Italian discussions."
+  },
+  {
+    "id": "japanese",
+    "title": "日本語",
+    "type": "i18n",
+    "subtitle": "For Japanese discussions."
+  },
+  {
+    "id": "spanish",
+    "title": "Español",
+    "type": "i18n",
+    "subtitle": "For Spanish discussions."
+  }
+]

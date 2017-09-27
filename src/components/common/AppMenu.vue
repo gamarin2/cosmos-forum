@@ -1,7 +1,13 @@
 <template lang="pug">
   menu.app-menu
-    part(title='Discussion')
-      list-item(to="/" exact @click.native="close" title="All Threads")
+    list-item(to="/" exact @click.native="close" title="Index")
+    part(title='Discussions')
+      list-item(
+        v-for="i in englishDiscussions"
+        :key="i.id"
+        :title="i.title"
+        :to="'/d/' + i.id")
+
     part(title='Community')
       list-item(to="/users" exact @click.native="close" title="All Users")
   // 
@@ -32,7 +38,10 @@ export default {
     Part
   },
   computed: {
-    ...mapGetters(['proposals', 'validators']),
+    ...mapGetters(['proposals', 'validators', 'discussions']),
+    englishDiscussions () {
+      return this.discussions.filter(i => i.type === 'english')
+    },
     proposalAlerts () {
       return this.proposals
         .filter(p => p.flags.read === false).length

@@ -1,8 +1,9 @@
 <template lang='pug'>
 .vote-widget(:class="cssClass")
-  .btn-vote.btn-vote-yea(@click='voteYea'): i.material-icons expand_less
-  .value {{ totalVotes }}
-  .btn-vote.btn-vote-nay(@click='voteNay'): i.material-icons expand_more
+  .btn-vote.btn-vote-yea(@click='vote'): i.material-icons expand_less
+  // .btn-vote.btn-vote-yea(@click='voteYea'): i.material-icons expand_less
+  .value {{ thread.votes.length }}
+  // .btn-vote.btn-vote-nay(@click='voteNay'): i.material-icons expand_more
 </template>
 
 <script>
@@ -11,7 +12,7 @@ export default {
   name: 'vote-widget',
   computed: {
     ...mapGetters(['user']),
-    totalVotes () {
+    /* totalVotes () {
       return this.thread.votes.yea.length - this.thread.votes.nay.length
     },
     votedYea () { return this.thread.votes.yea.includes(this.user.id) },
@@ -22,8 +23,16 @@ export default {
       if (this.votedNay) { value += 'vote-widget-nay' }
       return value
     }
+    */
+    userVoted () { return this.thread.votes.includes(this.user.id) },
+    cssClass () {
+      let value = ''
+      if (this.userVoted) { value += 'vote-widget-yea' }
+      return value
+    }
   },
   methods: {
+    /*
     voteYea () {
       if (this.votedNay) {
         this.$store.commit('threadVoteReset', { threadId: this.thread.id, userId: this.user.id })
@@ -42,6 +51,14 @@ export default {
         this.$store.commit('threadVoteReset', { threadId: this.thread.id, userId: this.user.id })
       } else {
         this.$store.commit('threadVoteNay', { threadId: this.thread.id, userId: this.user.id })
+      }
+    }
+    */
+    vote () {
+      if (this.userVoted) {
+        this.$store.commit('threadVoteReset', { threadId: this.thread.id, userId: this.user.id })
+      } else {
+        this.$store.commit('threadVote', { threadId: this.thread.id, userId: this.user.id })
       }
     }
   },

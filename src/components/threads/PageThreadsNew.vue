@@ -1,7 +1,7 @@
 <template lang="pug">
-page(title="New Thread")
+page(icon="add_box" :title="'New Thread in ' + discussion.title + ' Discussion'")
   tool-bar
-    router-link(:to="{ name: 'all-threads' }" exact): i.material-icons arrow_back
+    router-link(to="../" exact): i.material-icons arrow_back
   form-struct(:submit="onSubmit")
     form-group(:error="$v.fields.title.$error"
       field-id='thread-title' field-label='Thread Title')
@@ -56,7 +56,17 @@ export default {
     ToolBar
   },
   computed: {
-    ...mapGetters(['user'])
+    ...mapGetters(['user', 'discussions']),
+    discussion () {
+      if (this.discussions.length > 0) {
+        return this.discussions.find(i => i.id === this.$route.params.discussion)
+      } else {
+        return {
+          id: 'loading',
+          title: 'Loading'
+        }
+      }
+    }
   },
   data: () => ({
     titleMinLength: 10,
@@ -69,11 +79,8 @@ export default {
       title: '',
       body: '',
       userId: '',
-      flags: {},
-      votes: {
-        yea: [],
-        nay: []
-      }
+      tags: ['generated-tag', 'sample-tag'],
+      votes: []
     }
   }),
   methods: {
@@ -83,6 +90,7 @@ export default {
         let thread = this.fields
         thread.createdAt = Date.now()
         thread.userId = this.user.id
+        thread.votes.push(this.user.id)
 
         this.$store.commit('threadAdd', thread)
 
