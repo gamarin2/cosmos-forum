@@ -1,17 +1,19 @@
 <template lang="pug">
 page(:title='thread.title')
+  modal-comment(:thread="thread")
   tool-bar
     router-link(to="../" exact)
       i.material-icons arrow_back
-    a(@click="threadIsSpam(thread.id)"): i.material-icons error
-    a(@click="commentOnThread(thread.id)"): i.material-icons comment
+    a(@click="threadIsSpam"): i.material-icons error
+    a(@click="newComment"): i.material-icons comment
 
   part
-    div(slot='title') 
-      | Posted by  
-      router-link.author(:to="{ name: 'user', params: { user: thread.userId }}")
-        | {{ thread.userId + ' ' }}
-      span.date {{ threadCreatedAtAgo }}
+    div(slot='title')
+      | {{ threadCreatedAtAgo }} by 
+      router-link(:to="{ name: 'user', params: { user: thread.userId }}")
+        | {{ thread.userId }} 
+      | in 
+      router-link(:to="{ name: 'threads', params: { discussion: thread.discussionId }}") {{ thread.discussionId }}
     text-block(:content="thread.body")
   part
     div(slot='title') Comments on this thread
@@ -23,9 +25,9 @@ import dateUnixAgo from '../../scripts/dateUnixAgo'
 import { mapGetters } from 'vuex'
 import Btn from '@nylira/vue-button'
 import Comments from '../comments/Comments'
-import FieldVote from '../common/NiFieldVote'
 import FormStruct from '../common/NiFormStruct'
 import ListItem from '../common/NiListItem'
+import ModalComment from './ModalComment'
 import Page from '../common/NiPage'
 import Part from '../common/NiPart'
 import TextBlock from '../common/TextBlock'
@@ -35,9 +37,9 @@ export default {
   components: {
     Btn,
     Comments,
-    FieldVote,
     FormStruct,
     ListItem,
+    ModalComment,
     Page,
     Part,
     TextBlock,
@@ -49,7 +51,7 @@ export default {
       return this.comments.filter(i => i.parentId === this.thread.id)
     },
     threadCreatedAtAgo () {
-      return dateUnixAgo(this.thread.createdAt)
+      return dateUnixAgo(this.thread.dateCreated)
     },
     thread () {
       if (this.threads && this.threads.length > 0) {
@@ -100,16 +102,12 @@ export default {
         this.thread = this.emptyThread
       }
     },
-    commentOnThread (threadId) {
-      this.$store.commit('notify', { title: 'View Discussion Thread',
-        body: `TODO: Create comment on ${threadId} thread.`})
+    newComment (threadId) {
+      this.$store.commit('toggleModalComment', true)
     },
     threadIsSpam (threadId) {
       this.$store.commit('notify', { title: 'Mark Thread As Spam',
         body: `TODO: Report ${threadId} to moderator log.`})
-    },
-    toggleVoteVisible () {
-      this.voteVisible = !this.voteVisible
     }
   }
 }

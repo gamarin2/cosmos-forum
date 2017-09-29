@@ -22,7 +22,7 @@ const mutations = {
     console.log(userId, 'reset vote on', commentId)
   },
   commentAdd (state, comment) {
-    comment.createdAt = Date.now()
+    comment.dateCreated = Date.now()
     state.push(comment)
     console.log('comment add', JSON.stringify(comment))
   },

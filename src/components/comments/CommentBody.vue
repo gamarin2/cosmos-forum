@@ -1,22 +1,15 @@
-<template>
-  <div class="pz-comment-body">
-    <div class="meta">
-      <router-link class="author" to="/users/">
-        {{ comment.userId }}
-      </router-link>
-      <template v-if="comment.id">
-        <router-link class="date" :to="permalink":title="humanDate">
-          {{ timeAgo(comment.dateCreated) }}
-        </router-link>
-      </template>
-      <template v-else>
-        <span class="date" :title="humanDate">
-          {{ timeAgo(comment.dateCreated) }}
-        </span>
-      </template>
-    </div>
-    <div class="pz-comment-text" v-html="markdown(comment.body)"></div>
-  </div>
+<template lang="pug">
+.pz-comment-body
+  .meta
+    router-link.author(:to="{ name: 'user', params: { user: comment.userId }}")
+      | {{ comment.userId }}
+    template(v-if='comment.id')
+      router-link.date(:to='permalink', :title='humanDate')
+        | {{ timeAgo(comment.dateCreated) }}
+    template(v-else='')
+      span.date(:title='humanDate')
+        | {{ timeAgo(comment.dateCreated) }}
+  .pz-comment-text(v-html='markdown(comment.body)')
 </template>
 
 <script>
@@ -30,7 +23,14 @@ let md = require('markdown-it')({
 export default {
   computed: {
     permalink () {
-      return `/blog/${this.$route.params.entry}/${this.comment.id}`
+      return {
+        name: 'comment',
+        params: {
+          discussion: this.comment.discussionId,
+          thread: this.comment.threadId,
+          comment: this.comment.id
+        }
+      }
     },
     humanDate () {
       return moment(this.comment.dateCreated, 'x').format('YYYY-MM-DD HH:MM:SS')
@@ -102,11 +102,9 @@ export default {
 
   code
     mono()
-    background #f0f0f0
     margin 0 0 1.5*x
 
   pre
-    background #f0f0f0
     overflow-x scroll
     margin-bottom 1.5*x
     margin-left -1*x
@@ -212,12 +210,4 @@ export default {
 @media screen and (min-width: 1024px)
   .pz-comment-text
     padding-right 1rem
-
-@media screen and (min-width: 1280px)
-  .pz-comment-text
-    padding-right 1.5rem
-
-@media screen and (min-width: 1440px)
-  .pz-comment-text
-    padding-right 2rem
 </style>

@@ -34,4 +34,8 @@ export default {
 
   p
     margin-bottom 1rem
+
+@media screen and (min-width: 768px)
+  .proposal-text
+    padding 1.5rem 1.5rem 1.5rem - px
 </style>

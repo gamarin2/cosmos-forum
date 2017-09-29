@@ -1,20 +1,19 @@
-<template>
-  <a class="pz-comment-form-btn" @click="authenticatedComment">
-    <span class="form-input">Add a comment</span>
-  </a>
+<template lang="pug">
+a.pz-comment-form-btn(@click='authenticatedComment')
+  span.form-input Add a comment
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 export default {
   computed: {
-    ...mapGetters(['sessionUser'])
+    ...mapGetters(['user'])
   },
   methods: {
     authenticatedComment () {
       this.$store.commit('setNewCommentPostId', this.$route.params.entry)
       this.$store.commit('setNewCommentParentId', this.$route.params.entry)
-      if (!this.sessionUser.email) {
+      if (!this.user.email) {
         this.$store.commit('setSessionRequest', '/comment/new')
         this.$router.push('/signup')
       } else {
@@ -32,6 +31,7 @@ export default {
   padding 0.5rem
   display block
   cursor pointer
+  border-bottom 1px solid bc-dim
   span.form-input
     display block
     width 100%
@@ -54,8 +54,4 @@ export default {
 @media screen and (min-width: 1024px)
   .pz-comment-form-btn
     padding 1.5rem
-
-@media screen and (min-width: 1280px)
-  .pz-comment-form-btn
-    padding 2.5rem
 </style>

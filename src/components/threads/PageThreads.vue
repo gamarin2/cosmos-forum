@@ -38,7 +38,7 @@ export default {
       return this.discussions.find(i => i.id === this.$route.params.discussion)
     },
     routeNewThread () {
-      return { name: 'page-threads-new', params: { discussion: this.discussion.id } }
+      return { name: 'threads-new', params: { discussion: this.discussion.id } }
     },
     filteredThreads () {
       if (this.threads && this.filters) {
@@ -65,4 +65,3 @@ export default {
   }
 }
 </script>
-

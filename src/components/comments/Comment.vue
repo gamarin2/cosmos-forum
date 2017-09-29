@@ -1,10 +1,8 @@
-<template>
-  <div class="pz-comment" :id="`comment-${comment.id}`">
-    <comment-container :comment="comment" :limit="nestLimitReached"></comment-container>
-    <div class="pz-child-comments">
-      <comment v-for="i in filteredComments" :comment="i"  :key="i.id"></comment>
-    </div>
-  </div>
+<template lang="pug">
+.pz-comment(:id='`comment-${comment.id}`')
+  comment-container(:comment='comment', :limit='nestLimitReached')
+  .pz-child-comments
+    comment(v-for='i in filteredComments', :comment='i', :key='i.id')
 </template>
 
 <script>
@@ -71,7 +69,7 @@ export default {
 
   .pz-comment
     padding-bottom 0.125em
-    border-left 1px solid bc
+    border-left 1px solid bc-dim
     &:last-of-type
       margin-bottom 0.5em
 
@@ -83,14 +81,8 @@ export default {
 @media screen and (min-width: 768px)
   .pz-comment
     padding-left 0.75em
-    .pz-comment
-      border-left-color lighten(bc, 50%)
 
 @media screen and (min-width: 1024px)
   .pz-comment
     padding-left 1em
-
-@media screen and (min-width: 1280px)
-  .pz-comment
-    padding-left 2em
 </style>

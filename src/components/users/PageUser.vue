@@ -4,12 +4,12 @@ page(icon="face" :title="user.name")
     router-link(to="/users" exact): i.material-icons arrow_back
     anchor-copy(value="TODO:replaceme" icon="content_copy")
 
-  part(title='User Profile')
-    list-item(dt="Threads" dd="5" to="/proposals")
-    list-item(dt="Comments" dd="231" to="/slashes")
-    list-item(dt="Vote History" dd="35 Votes" to="/votes")
+  part(title='User Activity')
+    list-item(dt="Threads" dd="5" :to="{ name: 'user-threads', params: { user: user.id }}")
+    list-item(dt="Comments" dd="231" :to="{ name: 'user-comments', params: { user: user.id }}")
+    list-item(dt="Vote History" dd="35 Votes" :to="{ name: 'user-votes', params: { user: user.id }}")
 
-  part(title='Staking')
+  part(title='Stake')
     list-item(dt="ATOM" dd="2,428")
 </template>
 

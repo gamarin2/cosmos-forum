@@ -1,6 +1,6 @@
 <template lang='pug'>
 div(:class='cssClass')
-  label(:for='fieldId') {{ fieldLabel }}
+  label(:for='fieldId' v-if="fieldId && fieldLabel") {{ fieldLabel }}
   .ni-form-group-field: slot
 </template>
 

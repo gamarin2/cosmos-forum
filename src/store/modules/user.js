@@ -2,7 +2,11 @@ const state = {
   id: 'peng-zhong',
   email: 'peng@tendermint.com',
   website: 'https://tendermint.com',
-  signedIn: true
+  signedIn: true,
+  modalComment: {
+    active: false,
+    commentParentId: ''
+  }
 }
 
 const mutations = {
@@ -13,6 +17,12 @@ const mutations = {
   signOut (state) {
     state.signedIn = false
     console.log('signed out')
+  },
+  toggleModalComment (state, value) {
+    state.modalComment.active = value
+  },
+  setCommentParent (state, parentId) {
+    state.modalComment.commentParentId = parentId
   }
 }
 

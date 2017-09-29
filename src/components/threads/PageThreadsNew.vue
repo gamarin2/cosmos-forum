@@ -81,7 +81,7 @@ export default {
     bodyMaxLength: 40000,
     fields: {
       id: shortid.generate(),
-      createdAt: '',
+      dateCreated: '',
       title: '',
       body: '',
       userId: '',
@@ -94,7 +94,6 @@ export default {
       this.$v.$touch()
       if (!this.$v.$error) {
         let thread = this.fields
-        thread.createdAt = Date.now()
         thread.userId = this.user.id
         thread.votes.push(this.user.id)
         thread.discussionId = this.$route.params.discussion

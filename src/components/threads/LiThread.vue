@@ -3,7 +3,7 @@ transition(name="thread")
   .li-thread
     vote-widget(:thread="thread")
     .text
-      router-link.title(:to="{ name: 'page-thread', params: { thread: thread.id }}")
+      router-link.title(:to="{ name: 'thread', params: { thread: thread.id }}")
         | {{ thread.title }}
         .tag(v-for="i in thread.tagIds") {{ i }}
       .meta {{ commentCount }} comments &ndash; {{ threadCreatedAtAgo }} by 
@@ -25,10 +25,10 @@ export default {
       return 0
     },
     threadCreatedAt () {
-      return dateUnix(this.thread.createdAt)
+      return dateUnix(this.thread.dateCreated)
     },
     threadCreatedAtAgo () {
-      return dateUnixAgo(this.thread.createdAt)
+      return dateUnixAgo(this.thread.dateCreated)
     }
   },
   props: ['thread']
@@ -53,10 +53,8 @@ export default {
 
   a.title
     flex 1
-    font-size .875rem
-    line-height 1.125rem
     color txt
-    height 2rem
+    margin-bottom 0.5rem
 
     overflow hidden
     text-overflow ellipsis
@@ -76,16 +74,10 @@ export default {
 
   .meta
     display flex
-    line-height 1rem
     font-size 0.75rem
     color dim
     a.author 
       padding-left 0.33rem
       &:hover
         color bright
-
-@media screen and (min-width: 768px)
-  .li-thread
-    .chart
-      margin-right 1rem
 </style>

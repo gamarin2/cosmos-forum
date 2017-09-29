@@ -1,7 +1,7 @@
 [
   {
     "id": "d93bf0eu",
-    "createdAt": "1493627091000",
+    "dateCreated": "1493627091000",
     "userId": "zaki-manian",
     "title": "An dixit, nitido! Qui ab plangi, frustraque lanam, credunt nec postquam",
     "discussionId": "general",
@@ -11,7 +11,7 @@
   },
   {
     "id": "bfu373b3",
-    "createdAt": "1494491091000",
+    "dateCreated": "1494491091000",
     "userId": "jae-kwon",
     "title": "It's true: the egg came before the chicken",
     "discussionId": "general",
@@ -21,7 +21,7 @@
   },
   {
     "id": "mvy275sn",
-    "createdAt": "1494923091000",
+    "dateCreated": "1494923091000",
     "userId": "ethan-buchman",
     "title": "Est dixi tethys proximus ille tyrannus nocens",
     "discussionId": "general",
@@ -31,7 +31,7 @@
   },
   {
     "id": "qweoiwrqd",
-    "createdAt": "1494933891000",
+    "dateCreated": "1494933891000",
     "userId": "peng-zhong",
     "title": "Veneni positis ab addenda Troia Atrides pedibus",
     "discussionId": "economics",
@@ -41,7 +41,7 @@
   },
   {
     "id": "eroirgaeorg",
-    "createdAt": "1494951891000",
+    "dateCreated": "1494951891000",
     "userId": "matt-bell",
     "title": "Terribilesque venerit precantia praedictaque ignes iactanti",
     "discussionId": "economics",
@@ -51,7 +51,7 @@
   },
   {
     "id": "oirgaergar",
-    "createdAt": "1494977091000",
+    "dateCreated": "1494977091000",
     "userId": "gautier-marin",
     "title": "Coarguit quod nomen quod facto fragmina",
     "discussionId": "economics",
@@ -61,7 +61,7 @@
   },
   {
     "id": "aweiopwtpqo",
-    "createdAt": "1494977591000",
+    "dateCreated": "1494977591000",
     "userId": "judd-keppel",
     "title": "Just a random title about economics?",
     "discussionId": "validators",
@@ -71,7 +71,7 @@
   },
   {
     "id": "awefjapga",
-    "createdAt": "1494877091000",
+    "dateCreated": "1494877091000",
     "userId": "hugh-rooney",
     "title": "Chicken antelope cow elephant tiger lion dog cat salmon",
     "discussionId": "validators",
@@ -81,7 +81,7 @@
   },
   {
     "id": "asdfas9d",
-    "createdAt": "1494947091000",
+    "dateCreated": "1494947091000",
     "userId": "matt-oneill",
     "title": "Cupcakes fondant chocolate vanilla raspberry brioche bruschetta strawberry",
     "discussionId": "validators",
@@ -91,7 +91,7 @@
   },
   {
     "id": "xj398rbf",
-    "createdAt": "1494977591000",
+    "dateCreated": "1494977591000",
     "userId": "christine-chiang",
     "title": "Grass leaves trees shadows wind river lake stream clouds rays sun",
     "discussionId": "feedback",
@@ -101,7 +101,7 @@
   },
   {
     "id": "aoenf8dn",
-    "createdAt": "1494877091000",
+    "dateCreated": "1494877091000",
     "userId": "fabian-weber",
     "title": "Iron steel titanium gold silver uranium platinum tin copper bronze brass",
     "discussionId": "feedback",
@@ -111,7 +111,7 @@
   },
   {
     "id": "ir83nb2n",
-    "createdAt": "1494947091000",
+    "dateCreated": "1494947091000",
     "userId": "ethan-frey",
     "title": "Debian Fedora RedHat SUSE Slackware Gentoo Mandrake Ubuntu LFS SCO Linux Mint",
     "discussionId": "feedback",

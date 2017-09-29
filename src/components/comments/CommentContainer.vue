@@ -1,35 +1,22 @@
-<template>
-  <div class="pz-comment-container">
-    <comment-body :comment="comment"></comment-body>
-    <menu class="pz-comment-menu">
-      <a @click="setPopupVisible(true)"><i class="fa fa-ellipsis-h"></i></a>
-      <div class="divider"></div>
-      <a v-if="!limit" @click="authenticatedReply">
-        <i class="fa fa-reply"></i>
-      </a>
-      <div class="divider"></div>
-      <div class="score">
-        <a @click="upvote">
-          <i class="fa fa-chevron-up"></i>
-        </a>
-        <span class="value" :title="detailedScore">
-          {{ score }}
-        </span>
-      </div>
-    </menu>
-    <div class="pz-popup-background" v-show="popupVisible" @click="setPopupVisible(false)">
-    </div>
-    <div class="pz-popup-wrapper">
-      <menu class="pz-comment-menu-popup" v-show="popupVisible">
-        <!--<a>Share</a>-->
-        <router-link :to="permalink">Permalink</router-link>
-        <template v-if="myComment">
-          <a @click="edit">Edit</a>
-          <a @click="remove">Delete</a>
-        </template>
-      </menu>
-    </div>
-  </div>
+<template lang="pug">
+.pz-comment-container
+  comment-body(:comment="comment")
+  menu.pz-comment-menu
+    a(@click="setPopupVisible(true)"): i.material-icons more_horiz
+    .divider
+    a(v-if="!limit", @click="newComment"): i.material-icons reply
+    .divider
+    .votes
+      a(@click="upvote"): i.material-icons expand_less
+      span.value
+        | {{ comment.votes.length }}
+  .pz-popup-background(v-show="popupVisible", @click="setPopupVisible(false)")
+  .pz-popup-wrapper
+    menu.pz-comment-menu-popup(v-show="popupVisible")
+      a TODO: Share
+      template(v-if="myComment")
+        a(@click="edit") Edit
+        a(@click="remove") Delete
 </template>
 
 <script>
@@ -43,28 +30,13 @@ export default {
   },
   computed: {
     ...mapGetters(['user']),
-    nestLimitReached () {
-      return true
-    },
+    nestLimitReached () { return true },
     myComment () {
+      /*
       let user = firebase.auth().currentUser
-      if (user && user.email === this.comment.userId) {
-        return true
-      } else {
-        return false
-      }
-    },
-    detailedScore () {
-      let comment = this.comment
-      let percentage =
-        Math.round(100 * (comment.upvotes / (comment.upvotes + comment.downvotes)))
-      return `${comment.upvotes} up / ${comment.downvotes} down (${percentage}% like it)`
-    },
-    score () {
-      return this.comment.upvotes - this.comment.downvotes
-    },
-    permalink () {
-      return `/blog/${this.$route.params.entry}/${this.comment.id}`
+      return user && user.email === this.comment.userId
+      */
+      return this.user.id === this.comment.userId
     }
   },
   data () {
@@ -75,6 +47,10 @@ export default {
   methods: {
     setPopupVisible (val) {
       this.popupVisible = val
+    },
+    newComment (threadId) {
+      this.$store.commit('setCommentParent', this.comment.id)
+      this.$store.commit('toggleModalComment', true)
     },
     authenticatedReply () {
       // console.log('setting up reply...')
@@ -144,7 +120,7 @@ export default {
   color light
 
   .divider
-    border-right 1px solid lighten(bc,50%)
+    border-right 1px solid bc
 
   a
     padding 0 0.75rem
@@ -153,7 +129,7 @@ export default {
     &:hover
       color link
 
-  .score
+  .votes
     display flex
 
     a.vote-up
@@ -193,8 +169,8 @@ export default {
   top 0.5rem
   right 0
   width 10rem
-  background #fff
-  box-shadow hsla(0,0,0,0.15) 0 0.15rem 0.333rem
+  background c-app-fg
+  border 1px solid bc
 
   z-index 101
 
@@ -217,7 +193,7 @@ export default {
 @media screen and (min-width: 360px)
   .pz-comment-menu
     font-size 0.85rem
-    .score
+    .votes
       a.vote-up
         padding-left 0.75rem
       a.vote-down

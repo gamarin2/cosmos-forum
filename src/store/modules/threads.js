@@ -35,7 +35,7 @@ const mutations = {
     console.log(userId, 'reset vote on', threadId)
   },
   threadAdd (state, thread) {
-    thread.createdAt = Date.now()
+    thread.dateCreated = Date.now()
     state.push(thread)
     console.log('thread add', JSON.stringify(thread))
   },

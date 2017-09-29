@@ -1,10 +1,8 @@
-<template>
-  <div class="pz-comments-container" id="comments">
-    <comment-form-btn></comment-form-btn>
-    <div class="pz-comments" v-if="comments.length > 0">
-      <comment v-for="i in filteredComments" :comment="i" :key="i.id"></comment>
-    </div>
-  </div>
+<template lang="pug">
+#comments.pz-comments-container
+  // comment-form-btn
+  .pz-comments(v-if='comments.length > 0')
+    comment(v-for='i in filteredComments', :comment='i', :key='i.id')
 </template>
 
 <script>
@@ -58,8 +56,4 @@ export default {
 @media screen and (min-width: 1024)
   .pz-comments
     padding-bottom 1rem
-
-@media screen and (min-width: 1280px)
-  .pz-comments
-    padding-bottom 2rem
 </style>
