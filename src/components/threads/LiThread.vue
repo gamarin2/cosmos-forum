@@ -5,7 +5,7 @@ transition(name="thread")
     .text
       router-link.title(:to="{ name: 'page-thread', params: { thread: thread.id }}")
         | {{ thread.title }}
-        .tag(v-for="i in thread.tags") {{ i }}
+        .tag(v-for="i in thread.tagIds") {{ i }}
       .meta {{ commentCount }} comments &ndash; {{ threadCreatedAtAgo }} by 
         router-link.author(:to="{ name: 'user', params: { user: thread.userId }}")
           | {{ thread.userId }}
@@ -53,22 +53,23 @@ export default {
 
   a.title
     flex 1
-    font-size 1rem
+    font-size .875rem
+    line-height 1.125rem
     color txt
     height 2rem
 
     overflow hidden
     text-overflow ellipsis
 
-    span
-      font-label()
+    .tag
       color dim
-      font-size 0.5rem
+      font-size 0.75rem
       line-height 1rem - 2*px
       display inline-block
       padding 0 0.25rem
+      margin-left 0.25rem
       vertical-align middle
-      border 1px solid bc-dim
+      background bc-faint
 
     &:hover
       color bright

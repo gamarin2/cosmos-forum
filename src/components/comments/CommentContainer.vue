@@ -9,15 +9,12 @@
       </a>
       <div class="divider"></div>
       <div class="score">
-        <a :class="upClass" @click="upvote">
+        <a @click="upvote">
           <i class="fa fa-chevron-up"></i>
         </a>
         <span class="value" :title="detailedScore">
           {{ score }}
         </span>
-        <a :class="downClass" @click="downvote">
-          <i class="fa fa-chevron-down"></i>
-        </a>
       </div>
     </menu>
     <div class="pz-popup-background" v-show="popupVisible" @click="setPopupVisible(false)">
@@ -45,16 +42,9 @@ export default {
     CommentBody
   },
   computed: {
+    ...mapGetters(['user']),
     nestLimitReached () {
       return true
-    },
-    upClass () {
-      if (this.sessionVotes[this.comment.id] === 1) { return 'vote-up active' }
-      return 'vote-up'
-    },
-    downClass () {
-      if (this.sessionVotes[this.comment.id] === -1) { return 'vote-down active' }
-      return 'vote-down'
     },
     myComment () {
       let user = firebase.auth().currentUser
@@ -75,8 +65,7 @@ export default {
     },
     permalink () {
       return `/blog/${this.$route.params.entry}/${this.comment.id}`
-    },
-    ...mapGetters(['sessionUser', 'sessionVotes'])
+    }
   },
   data () {
     return {
@@ -92,7 +81,7 @@ export default {
       this.$store.commit('setNewCommentPostId', this.$route.params.entry)
       this.$store.commit('setNewCommentParentId', this.comment.id)
       this.$store.commit('setNewCommentParent', this.comment)
-      if (!this.sessionUser.email) {
+      if (!this.user.email) {
         this.$store.commit('setSessionRequest', '/comment/new')
         this.$router.push('/signup')
       } else {

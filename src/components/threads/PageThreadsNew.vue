@@ -26,6 +26,12 @@ page(icon="add_box" :title="'New Thread in ' + discussion.title + ' Discussion'"
       form-msg(name='Thread Body' type='length'
         :min='bodyMinLength' :max='bodyMaxLength'
         v-if='!$v.fields.body.minLength || !$v.fields.body.maxLength')
+    form-group(:error="$v.fields.tagIds.$error"
+      field-id='thread-tagIds' field-label='Thread Tags')
+      field#thread-tagIds(
+        type="text"
+        placeholder="Tags..."
+        v-model="fields.tagIds")
     div(slot="footer")
       div
       btn(icon="check" value="Submit Thread" type="submit")
@@ -79,7 +85,7 @@ export default {
       title: '',
       body: '',
       userId: '',
-      tags: ['generated-tag', 'sample-tag'],
+      tagIds: '',
       votes: []
     }
   }),
@@ -91,12 +97,15 @@ export default {
         thread.createdAt = Date.now()
         thread.userId = this.user.id
         thread.votes.push(this.user.id)
+        thread.discussionId = this.$route.params.discussion
+
+        // TODO: make tagIds better
+        thread.tagIds = thread.tagIds.split(',')
 
         this.$store.commit('threadAdd', thread)
-
         this.$store.commit('notify', { title: 'New Thread Created', body: 'You\'ve successfully created a new thread.' })
         this.resetForm()
-        this.$router.push({ name: 'all-threads' })
+        this.$router.push('../')
       }
     },
     resetForm () {
@@ -117,6 +126,8 @@ export default {
         required,
         minLength (x) { return minLength(this.bodyMinLength)(x) },
         maxLength (x) { return maxLength(this.bodyMaxLength)(x) }
+      },
+      tagIds: {
       }
     }
   })

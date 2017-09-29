@@ -6,10 +6,7 @@
     "parentId" : "d93bf0eu",
     "threadId" : "d93bf0eu",
     "userId" : "ethan-buchman",
-    "votes": {
-      "yea": [],
-      "nay": []
-    }
+    "votes": ["jae-kwon", "ethan-buchman", "brian-crain", "jim-yang", "adrian-brink", "judd-keppel", "hugh-rooney", "zaki-manian", "matt-bell", "rigel-rozanski", "sunny-aggarwal"]
   },
   {
     "id": "H1coeqe_e",
@@ -18,10 +15,7 @@
     "parentId" : "d93bf0eu",
     "threadId" : "d93bf0eu",
     "userId" : "peng-zhong",
-    "votes": {
-      "yea": [],
-      "nay": []
-    }
+    "votes": ["jae-kwon", "ethan-buchman", "brian-crain", "jim-yang", "adrian-brink", "judd-keppel", "hugh-rooney", "zaki-manian", "matt-bell", "rigel-rozanski", "sunny-aggarwal"]
   },
   {
     "id": "S1of7zIie",
@@ -29,7 +23,8 @@
     "dateCreated" : 1489539859269,
     "parentId" : "ryrQibLse",
     "threadId" : "d93bf0eu",
-    "userId" : "jae-kwon"
+    "userId" : "jae-kwon",
+    "votes": ["jae-kwon", "ethan-buchman", "brian-crain", "jim-yang", "adrian-brink", "judd-keppel", "hugh-rooney", "zaki-manian", "matt-bell", "rigel-rozanski", "sunny-aggarwal"]
   },
   {
     "id": "rkC7og8il",
@@ -38,10 +33,7 @@
     "parentId" : "d93bf0eu",
     "threadId" : "d93bf0eu",
     "userId" : "ash-han",
-    "votes": {
-      "yea": [],
-      "nay": []
-    }
+    "votes": ["jae-kwon", "ethan-buchman", "brian-crain", "jim-yang", "adrian-brink", "judd-keppel", "hugh-rooney", "zaki-manian", "matt-bell", "rigel-rozanski", "sunny-aggarwal"]
   },
   {
     "id": "ryrQibLse",
@@ -50,9 +42,6 @@
     "parentId" : "d93bf0eu",
     "threadId" : "d93bf0eu",
     "userId" : "ash-han",
-    "votes": {
-      "yea": [],
-      "nay": []
-    }
+    "votes": ["jae-kwon", "ethan-buchman", "brian-crain", "jim-yang", "adrian-brink", "judd-keppel", "hugh-rooney", "zaki-manian", "matt-bell", "rigel-rozanski", "sunny-aggarwal"]
   }
 ]

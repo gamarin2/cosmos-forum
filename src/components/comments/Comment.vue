@@ -2,7 +2,7 @@
   <div class="pz-comment" :id="`comment-${comment.id}`">
     <comment-container :comment="comment" :limit="nestLimitReached"></comment-container>
     <div class="pz-child-comments">
-      <comment v-for="cc in comments" :comment="cc"  :key="cc.id"></comment>
+      <comment v-for="i in filteredComments" :comment="i"  :key="i.id"></comment>
     </div>
   </div>
 </template>
@@ -17,8 +17,8 @@ export default {
     CommentContainer
   },
   computed: {
-    comments () { return orderedComments(this.allComments, this.comment.id) },
-    ...mapGetters(['allComments'])
+    filteredComments () { return orderedComments(this.comments, this.comment.id) },
+    ...mapGetters(['comments'])
   },
   data () {
     return {
@@ -68,7 +68,6 @@ export default {
 
 .pz-comment
   padding 0.5em 0 0.5em 0.5em
-  background #fff
 
   .pz-comment
     padding-bottom 0.125em

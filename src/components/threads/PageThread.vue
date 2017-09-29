@@ -15,13 +15,14 @@ page(:title='thread.title')
     text-block(:content="thread.body")
   part
     div(slot='title') Comments on this thread
-    li-comment(v-for='i in threadComments' :title="trunc(i.body)" :subtitle="i.userId" :key="i.id" to="/")
+    comments
 </template>
 
 <script>
 import dateUnixAgo from '../../scripts/dateUnixAgo'
 import { mapGetters } from 'vuex'
 import Btn from '@nylira/vue-button'
+import Comments from '../comments/Comments'
 import FieldVote from '../common/NiFieldVote'
 import FormStruct from '../common/NiFormStruct'
 import ListItem from '../common/NiListItem'
@@ -33,6 +34,7 @@ export default {
   name: 'page-thread',
   components: {
     Btn,
+    Comments,
     FieldVote,
     FormStruct,
     ListItem,

@@ -2,7 +2,7 @@
   <div class="pz-comments-container" id="comments">
     <comment-form-btn></comment-form-btn>
     <div class="pz-comments" v-if="comments.length > 0">
-      <comment v-for="comment in comments" :comment="comment" :key="comment.id"></comment>
+      <comment v-for="i in filteredComments" :comment="i" :key="i.id"></comment>
     </div>
   </div>
 </template>
@@ -18,12 +18,10 @@ export default {
     Comment
   },
   computed: {
-    comments () {
-      return orderedComments(this.allComments, this.$route.params.entry)
-    },
-    ...mapGetters([
-      'allComments'
-    ])
+    ...mapGetters(['comments']),
+    filteredComments () {
+      return orderedComments(this.comments, this.$route.params.thread)
+    }
   }
 }
 </script>
@@ -45,7 +43,6 @@ export default {
     margin-bottom 2rem
 
   .pz-comments
-    background #fff
     padding 0 0.5rem
 
 @media screen and (min-width: 768px)

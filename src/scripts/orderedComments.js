@@ -8,7 +8,7 @@ export default function (comments, parentId) {
   // console.log('datedComments', datedComments)
 
   let ordered = datedComments.sort(function (a, b) {
-    return (b.upvotes - b.downvotes) - (a.upvotes - a.downvotes)
+    return b.votes - a.votes
   })
   // console.log('orderedComments', ordered)
 
