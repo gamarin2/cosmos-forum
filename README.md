@@ -1,6 +1,6 @@
 # cosmos-forum
 
-> Off-chain discussion forum for Cosmos proposals.
+> Communication platform to discuss, create drafts, debate and give feedback on past proposals. 
 
 ## Build Setup
 
